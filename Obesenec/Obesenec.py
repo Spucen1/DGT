@@ -1,8 +1,11 @@
 import random
-slova = ["auto", "pes", "kocka", "stol", "stolica", "kniha", "skola", "kvet", "strom", "okno", "dvere", "kreslo", "kompas", "kompot", "kompresor", "kompresia", "kompromis", "komplex", "komplikacia", "kompliment", "komplikovany", "komplikovat", "komplikacia", "komplikovanie"]
+slova = ["auto", "pes", "kocka", "stol", "stolica", "kniha", "skola", "kvet", "strom", "okno", "dvere", "kreslo", "kompas", "kompot", "kompresor", "kompresia", "kompromis", "komplex", "komplikacia", "kompliment", "komplikovany", "komplikovat", "komplikacia", "komplikovanie",
+         "dom", "mama", "tata", "pes", "mesto", "vlak", "strom", "list", "slnko", "mesiac", "hviezda", "ryba", "vtak", "motyl", "trava", "kvet", "les", "hora", "rieka", "jazero", "more", "oceán", "pláž", "piesok"]
 slovo = random.choice(slova)
 pokusy = 9
 vipis = "_" * len(slovo)
+pouzite = ""
+pouzyte = ""
 print(vipis)
 while pokusy > 0:
     pismeno = str(input("Zadaj pismeno: "))
@@ -13,6 +16,7 @@ while pokusy > 0:
             print("Vyhral si!")
             print("Spravne slovo bolo:", slovo + ".")
             break
+        pouzyte = pouzyte + ", " + pismeno
     elif len(pismeno) == 1:       
         for pysmeno in slovo:
             x = x + 1
@@ -20,6 +24,7 @@ while pokusy > 0:
                 vypis = vypis + pismeno
             else:
                 vypis = vypis + vipis[x]
+        pouzite = pouzite + ", " + pismeno
     if vypis == vipis:
         pokusy = pokusy - 1
     elif vypis == slovo:
@@ -38,6 +43,10 @@ while pokusy > 0:
     vipis = vypis
     print(vipis)
     print("Pokusy:", pokusy)
+    if pouzite != "":
+        print("Použité písmená:", pouzite[2:])
+    if pouzyte != "":
+        print("Použité slová:", pouzyte[2:])
 else:
     print("Prehral si!")
     print("Spravne slovo bolo:", slovo + ".")
