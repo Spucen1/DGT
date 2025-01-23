@@ -1,4 +1,4 @@
-sprava = input("Sprava: ")
+sprava = input("Správa: ")
 first = sprava[::2]
 second = sprava[1::2]
 for sym in first:
