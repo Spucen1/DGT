@@ -13,7 +13,3 @@ This repository is mainly for personal storage and learning purposes.
 
 ---
 
-## How to Use
-To run any of the scripts, make sure Python is installed.  
-```sh
-python filename.py
