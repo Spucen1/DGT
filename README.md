@@ -36,3 +36,16 @@ else:
         ynak = ord(znak) + num
         print(chr(ynak), end="")
         print(num, end="")
+```
+
+---
+
+## Notes on Learning
+
+I created this repository to store code as I learn Python. Some of these scripts are part of my schoolwork, while others are personal experiments to practice coding and problem-solving.
+
+One of the scripts in this repository is a message cipher and decipher, which I created to practice basic encryption and decryption techniques.
+
+Feel free to explore as I continue learning and experimenting with new ideas!
+
+---
