@@ -14,7 +14,7 @@ This repository is mainly for personal storage and learning purposes.
 ---
 
 ## Code Examples
-Here’s a simple example of one of the scripts I’ve written:
+Here’s a simple example of message cipher and decipher:
 
 ```python
 import random
