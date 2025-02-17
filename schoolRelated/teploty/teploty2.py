@@ -1,4 +1,4 @@
-subor = open("teploty2.txt", "r")
+subor = open("C:/Users/samue/Desktop/TU/Repository/DGT/schoolRelated/teploty/teploty2.txt", "r")
 pocetDni = 0
 rano = 0
 obed = 0
