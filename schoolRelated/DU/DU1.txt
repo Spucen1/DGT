@@ -1,0 +1,3 @@
+Popis programu:
+Tento program simuluje jednoduchú hru, kde hráč (znak X) sa pohybuje doľava alebo doprava v jednorozmernom poli o veľkosti 10. Na poli sa nachádzajú prekážky (#), ktoré sa náhodne pohybujú. Hráč ovláda pohyb pomocou kláves "a" (doľava) a "d" (doprava).
+Ak sa hráč dostane na pozíciu prekážky, hra končí správou "Havária".
