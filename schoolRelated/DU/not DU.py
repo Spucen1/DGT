@@ -3,8 +3,8 @@ import pygame
 import sys
 pygame.init()
 #obtiaznost = int(input("Obtiaznost(1-10): "))
-display = pygame.display.set_mode((10,10))
-velkost = 20  # Veľkosť herného poľa
+display = pygame.display.set_mode((100,100))
+velkost = 100  # Veľkosť herného poľa
 priestor = [" "] * velkost  # Inicializácia herného poľa ako zoznam prázdnych znakov
 hrac = "X"  # Znak predstavujúci hráča
 okraj = "#"  # Znak predstavujúci prekážky
