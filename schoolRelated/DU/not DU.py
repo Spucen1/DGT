@@ -4,7 +4,7 @@ import sys
 pygame.init()
 #obtiaznost = int(input("Obtiaznost(1-10): "))
 display = pygame.display.set_mode((100,100))
-velkost = 100  # Veľkosť herného poľa
+velkost = 20  # Veľkosť herného poľa
 priestor = [" "] * velkost  # Inicializácia herného poľa ako zoznam prázdnych znakov
 hrac = "X"  # Znak predstavujúci hráča
 okraj = "#"  # Znak predstavujúci prekážky
@@ -16,6 +16,8 @@ priestor[posLO + sirka] = okraj  # Umiestnenie druhej časti prekážky
 priestor[posH] = hrac  # Umiestnenie hráča na hracie pole
 hrame = True  # Premenná určujúca, či hra beží
 #obtiaznost = int(input("Obtiaznost(1-10): "))
+idk = 0
+idk1 = 3.0
 score = 0
 def posunZnaku(pozicia, posun, znak, delta=0):  
     """ Funkcia na presunutie znaku v hernom poli.  
@@ -29,6 +31,10 @@ def posunZnaku(pozicia, posun, znak, delta=0):
         return posun  # Vracia hodnotu posunu
     return 0  # Ak nie je možné posunúť, vráti 0
 while hrame:  # Hlavná herná slučka
+    idk += 1
+    if idk == 10:
+        idk1 += 0.1
+        idk = 0
     hodiny = pygame.time.Clock()
     print("|" + "".join(priestor) + "| " + str(score))  # Vykreslenie herného poľa
     score += 1
@@ -48,5 +54,5 @@ while hrame:  # Hlavná herná slučka
         print("Havária! SCORE: " + str(score - 1))  # Vypíše správu o kolízii
         hrame = False  # Ukončenie hry
     #hodiny.tick(obtiaznost)
-    hodiny.tick(5)
+    hodiny.tick(idk1)
 pygame.quit()
