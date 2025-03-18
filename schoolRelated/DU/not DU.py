@@ -28,11 +28,11 @@ def posunZnaku(pozicia, posun, znak, delta=0):
     return 0
 
 while hrame:
+    hodiny = pygame.time.Clock()
     idk += 1
     if idk == 10:
         idk1 += 0.1
         idk = 0
-    hodiny = pygame.time.Clock()
     print("|" + "".join(priestor) + "| " + str(score))
     score += 1
     for udalost in pygame.event.get():
