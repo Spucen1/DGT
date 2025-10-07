@@ -1,11 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://cdn.jsdelivr.net/npm/brython@3/brython.min.js">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/brython@3/brython_stdlib.js">
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-    
+    <div id="ramec">text</div>
+    <button id="farba">farbu</button>
+
+    <script type="text/python">
+        from browser import document, html
+        s = html.DIV("pridane")
+        s.style = {"color": "red"}
+        document <= s
+        b = 10
+
+        def zmen_farbu(ev):
+            global b
+            e = document["ramec"]
+            e.style = {"color": "blue"}
+            a = str(b) + "px"
+            s.style = {"font-size": a}
+            b += 10
+        document["farba"].bind("click", zmen_farbu)
+    </script>
 </body>
 </html>
