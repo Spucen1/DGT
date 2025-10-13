@@ -25,8 +25,10 @@ def list_tasks():
 
 def add_task(ev):
     title = document["title"].value
+    priority = document["priority"].value
+
     if title:
-        tasks.append({"title": title, "status": False, "priority": "medium"})
+        tasks.append({"title": title, "status": False, "priority": priority})
         document["title"].value = ""
         list_tasks()
 
