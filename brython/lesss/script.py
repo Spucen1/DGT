@@ -20,3 +20,16 @@ def list_tasks():
         row <= html.TD(status)
         row <= html.TD(task["priority"].capitalize())
         tab <= row
+
+    my_div <= tab
+
+def add_task(ev):
+    title = document["title"].value
+    if title:
+        tasks.append({"title": title, "status": False, "priority": "medium"})
+        document["title"].value = ""
+        list_tasks()
+
+document["add-task"].bind("click", add_task)
+
+list_tasks()
