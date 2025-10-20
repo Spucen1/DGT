@@ -1,8 +1,8 @@
 from browser import document, html
 
 tasks = [
-    {"title": "Homework", "status": True, "priority": "low"},
-    {"title": "Feed cat", "status": True, "priority": "medium"},
+    {"title": "Homework", "status": False, "priority": "low"},
+    {"title": "Feed cat", "status": False, "priority": "medium"},
     {"title": "Buy groceries", "status": False, "priority": "medium"},
 ]
 
@@ -16,12 +16,23 @@ def list_tasks():
     for task in tasks:
         row = html.TR()
         row <= html.TD(task["title"])
-        status = "Done" if task["status"] else "Pending"
-        row <= html.TD(status)
+        toggle_status = html.BUTTON("✔️" if task["status"] else "✖️")
+        toggle_status.bind("click", toggle_done)
+        row <= html.TD(toggle_status)
         row <= html.TD(task["priority"].capitalize())
         tab <= row
 
     my_div <= tab
+
+def toggle_done(ev):
+    btn = ev.target
+    row = btn.parentElement.parentElement
+    title = row.children[0].textContent
+    for task in tasks:
+        if task["title"] == title:
+            task["status"] = not task["status"]
+            break
+    list_tasks()
 
 def add_task(ev):
     title = document["title"].value
