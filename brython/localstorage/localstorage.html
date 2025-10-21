@@ -8,12 +8,12 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/brython@3/brython_stdlib.js">
     </script>
-    <script type="text/python" src="script.py"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <button id="save">Save</button>
     <button id="load">Load</button>
+    <button id="remove">Remove</button>
     <div id="output"></div>
 
     <script type="text/python">
@@ -21,9 +21,26 @@
         from browser.local_storage import storage
         import json
 
+        def remove(ev):
+            del storage["tasks"]
+
         def save(ev):
-            storage["tasks"] = ["task1" , "task2", "task3"]
-            document["output"] = "Saved"
+            storage["tasks"] = "yo"
+            document["output"].text = "Saved"
+
+        def load(ev):
+            if "tasks" in storage:
+                try:
+                    data = storage["tasks"]
+                    document["output"].text = data
+                except Exception as e:
+                    document["output"].text = "Error"
+            else:
+                document["output"].text = "No data found"
+
         document["save"].bind("click", save)
+        document["load"].bind("click", load)
+        document["remove"].bind("click", remove)
+
     </script>
 </body>
