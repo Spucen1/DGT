@@ -20,5 +20,10 @@
         from browser import document
         from browser.local_storage import storage
         import json
+
+        def save(ev):
+            storage["tasks"] = ["task1" , "task2", "task3"]
+            document["output"] = "Saved"
+        document["save"].bind("click", save)
     </script>
 </body>
