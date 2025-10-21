@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/brython@3/brython.min.js">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/brython@3/brython_stdlib.js">
+    </script>
+    <script type="text/python" src="script.py"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button id="save">Save</button>
+    <button id="load">Load</button>
+    <div id="output"></div>
+
+    <script type="text/python">
+        from browser import document
+        from browser.local_storage import storage
+        import json
+    </script>
+</body>

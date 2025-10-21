@@ -17,6 +17,7 @@ def list_tasks():
         row = html.TR()
         row <= html.TD(task["title"])
         toggle_status = html.BUTTON("✔️" if task["status"] else "✖️")
+        row.style["background-color"] = "gray" if task["status"] else ""
         toggle_status.bind("click", toggle_done)
         row <= html.TD(toggle_status)
         row <= html.TD(task["priority"].capitalize())
