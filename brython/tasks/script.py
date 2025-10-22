@@ -1,10 +1,14 @@
 from browser import document, html, window
+from browser.local_storage import storage
+import json
 
-tasks = [
-    {"title": "Homework", "status": False, "priority": "low"},
-    {"title": "Feed cat", "status": False, "priority": "medium"},
-    {"title": "Buy groceries", "status": False, "priority": "medium"},
-]
+if "tasks" in storage:
+    try:
+        tasks = json.loads(storage["tasks"])
+    except:
+        tasks = []
+else:
+    tasks = []
 
 def list_tasks():
     my_div = document["tasks"]
@@ -37,6 +41,7 @@ def remove_task(ev):
                 tasks.remove(task)
                 break
         row.remove()
+        storage["tasks"] = json.dumps(tasks)
         #list_tasks()
 
 def toggle_done(ev):
@@ -48,6 +53,7 @@ def toggle_done(ev):
             task["status"] = not task["status"]
             break
     list_tasks()
+    storage["tasks"] = json.dumps(tasks)
 
 def add_task(ev):
     title = document["title"].value
@@ -56,6 +62,7 @@ def add_task(ev):
         tasks.append({"title": title, "status": False, "priority": priority})
         document["title"].value = ""
         list_tasks()
+        storage["tasks"] = json.dumps(tasks)
 
 document["add-task"].bind("click", add_task)
 
