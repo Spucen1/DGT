@@ -64,6 +64,26 @@ def add_task(ev):
         list_tasks()
         storage["tasks"] = json.dumps(tasks)
 
+def CMhandler(ev):
+    if ev.target.tagName == "INPUT":
+        return
+    ev.preventDefault()
+
+
+
+def bck_dbl_fn(ev):
+    global tasks
+    del storage["tasks"]
+    tasks = []
+    list_tasks()
+
+def resize_print(ev):
+    print("widthh:", window.innerWidth, "height:", window.innerHeight)
+
+
 document["add-task"].bind("click", add_task)
+document["bck_btn"].bind("dblclick", bck_dbl_fn)
+document.bind("contextmenu", CMhandler)
+window.bind("resize", resize_print)
 
 list_tasks()
