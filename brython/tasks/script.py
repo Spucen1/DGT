@@ -91,8 +91,11 @@ def bck_fn(ev):
 
 def bck_dbl_fn(ev):
     global tasks
+    old_tasks = json.loads(storage["tasks"])
+    storage["old_tasks"] = json.dumps(old_tasks)
     del storage["tasks"]
     tasks = []
+    storage["tasks"] = json.dumps(tasks)
     list_tasks()
 
 def resize_print(ev):
