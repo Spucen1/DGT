@@ -10,6 +10,14 @@ if "tasks" in storage:
 else:
     tasks = []
 
+if "old_tasks" in storage:
+    try:
+        old_tasks = json.loads(storage["old_tasks"])
+    except:
+        old_tasks = []
+else:
+    old_tasks = []
+
 def list_tasks():
     my_div = document["tasks"]
     my_div.clear()
@@ -41,6 +49,8 @@ def remove_task(ev):
                 tasks.remove(task)
                 break
         row.remove()
+        old_tasks = json.loads(storage["tasks"])
+        storage["old_tasks"] = json.dumps(old_tasks)
         storage["tasks"] = json.dumps(tasks)
         #list_tasks()
 
@@ -53,6 +63,8 @@ def toggle_done(ev):
             task["status"] = not task["status"]
             break
     list_tasks()
+    old_tasks = json.loads(storage["tasks"])
+    storage["old_tasks"] = json.dumps(old_tasks)
     storage["tasks"] = json.dumps(tasks)
 
 def add_task(ev):
@@ -62,6 +74,8 @@ def add_task(ev):
         tasks.append({"title": title, "status": False, "priority": priority})
         document["title"].value = ""
         list_tasks()
+        old_tasks = json.loads(storage["tasks"])
+        storage["old_tasks"] = json.dumps(old_tasks)
         storage["tasks"] = json.dumps(tasks)
 
 def CMhandler(ev):
@@ -69,7 +83,11 @@ def CMhandler(ev):
         return
     ev.preventDefault()
 
-
+def bck_fn(ev):
+    global tasks
+    tasks = json.loads(storage["old_tasks"])
+    storage["tasks"] = json.dumps(tasks)
+    list_tasks()
 
 def bck_dbl_fn(ev):
     global tasks
@@ -80,10 +98,21 @@ def bck_dbl_fn(ev):
 def resize_print(ev):
     print("widthh:", window.innerWidth, "height:", window.innerHeight)
 
+def new_on_enter(ev):
+    if ev.key == "Escape":
+        document["title"].value = ""
+        ev.preventDefault()
+    elif ev.key == "Enter":
+        #add_task(ev)
+        ev.preventDefault()
+        document["add-task"].dispatchEvent(window.Event.new("click"))
+
 
 document["add-task"].bind("click", add_task)
+document["bck_btn"].bind("click", bck_fn)
 document["bck_btn"].bind("dblclick", bck_dbl_fn)
 document.bind("contextmenu", CMhandler)
 window.bind("resize", resize_print)
+document["title"].bind("keydown", new_on_enter)
 
 list_tasks()
