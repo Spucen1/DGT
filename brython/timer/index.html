@@ -11,9 +11,26 @@
                 font-size: 48px;
                 text-align: center;
             }
+
+            button {
+                font-size: 24px;
+                text-align: center;
+                padding: 10px 20px;
+                margin: auto;
+                align: center;
+            }
+
+            div {
+                text-align: center;
+                margin-top: 20px;
+            }
         </style>
     </head>
-    <body onload="brython()">
+    <body id="body" onload="brython()">
+        <div>
+            <button id="btn">Potrebujem Povzbudenie!</button>
+        </div>
+
         <p id="idk"></p>
 
         <script type="text/python" src="script.py"></script>
