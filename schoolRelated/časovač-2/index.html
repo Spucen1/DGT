@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Brython – reset</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.10.5/brython.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.10.5/brython_stdlib.js"></script>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+        }
+        #output {
+            margin-top: 10px;
+            font-size: 1.4em;
+            font-weight: bold;
+        }
+        button {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body onload="brython()">
+    <h1>Brython – klik a odpočítavanie</h1>
+
+    <button id="btn_click">Klikni ma</button>
+    <button id="btn_start">Spusti odpočítavanie</button>
+
+    <div id="output">Tu sa zobrazí text…</div>
+
+    <script type="text/python" src="main.py"></script>
+</body>
+</html>
