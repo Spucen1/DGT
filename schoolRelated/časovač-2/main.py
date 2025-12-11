@@ -28,7 +28,7 @@ document["btn_click"].bind("click", pocitaj_kliky)
 
 # KROK 3 – odpočítavanie
 
-zvysok = 5        # začíname od 5
+zvysok = 100        # začíname od 5
 id_timer = None   # sem si uložíme id časovača
 
 def tik():
@@ -41,13 +41,14 @@ def tik():
     zvysok -= 1
     if zvysok < 0:
         timer.clear_interval(id_timer)
+        document["output"].text = str("done")
     pass
 
 def start_odpoctu(ev):
     global zvysok, id_timer
-    zvysok = 5
+    zvysok = 100
     # TODO: nastav id_timer = timer.set_interval(tik, 1000)
-    id_timer = timer.set_interval(tik, 1000)
+    id_timer = timer.set_interval(tik, 100)
     pass
 
 document["btn_start"].bind("click", start_odpoctu)
