@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Mini Krtko</title>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.10.5/brython.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.10.5/brython_stdlib.js"></script>
+        <style>
+            body {
+                font-family: sans-serif;
+                margin: 20px;
+            }
+            #grid {
+                display: grid;
+                grid-template-columns: repeat(4, 60px);
+                grid-gap: 5px;
+                margin-bottom: 10px;
+            }
+            button {
+                height: 60px;
+                font-size: 1.5em;
+            }
+            #info {
+                margin-top: 10px;
+                font-size: 1.2em;
+            }
+
+            .krtko {
+                background-image: url(image.png);
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                color: transparent;
+            }
+        </style>
+    </head>
+    <body onload="brython()">
+        <h1>Mini Krtko</h1>
+
+        <div id="grid">
+            <!-- 16 tlačidiel -->
+            <button id="btn0">.</button>
+            <button id="btn1">.</button>
+            <button id="btn2">.</button>
+            <button id="btn3">.</button>
+            <button id="btn4">.</button>
+            <button id="btn5">.</button>
+            <button id="btn6">.</button>
+            <button id="btn7">.</button>
+            <button id="btn8">.</button>
+            <button id="btn9">.</button>
+            <button id="btn10">.</button>
+            <button id="btn11">.</button>
+            <button id="btn12">.</button>
+            <button id="btn13">.</button>
+            <button id="btn14">.</button>
+            <button id="btn15">.</button>
+        </div>
+
+        <button id="btn_start">Spustiť hru</button>
+        <button id="btn_stop">Stop</button>
+
+        <div id="info">
+            Skóre: <span id="score">0</span><br />
+            Kolo: <span id="round">0</span> / <span id="max_round">20</span>
+            <div id="delay"></div>
+            <div id="plus"></div>
+            <div id="message"></div>
+        </div>
+
+        <script type="text/python" src="main.py"></script>
+    </body>
+</html>
