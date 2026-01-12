@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Y2 Brython – Pozdrav</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 24px; line-height: 1.4; }
+    .card { max-width: 720px; padding: 16px; border: 1px solid #ddd; border-radius: 14px; }
+    .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    input { padding: 10px 12px; border-radius: 10px; border: 1px solid #bbb; min-width: 220px; }
+    button { padding: 10px 14px; border-radius: 10px; border: 1px solid #777; background: #f4f4f4; cursor: pointer; }
+    #status { font-size: 0.95rem; opacity: 0.85; }
+    #out { margin-top: 14px; font-size: 1.1rem; }
+    .hint { margin-top: 10px; font-size: 0.95rem; opacity: 0.8; }
+    code { background: #f3f3f3; padding: 1px 6px; border-radius: 6px; }
+  </style>
+
+  <!-- Brython (CDN) -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.12.3/brython.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.12.3/brython_stdlib.js"></script>
+</head>
+
+<body onload="brython()">
+  <div class="card">
+    <h1>Miniapka: Pozdrav</h1>
+    <p id="status">Status: (načíta sa z Brythonu)</p>
+
+    <div class="row">
+      <label for="inp_name">Meno:</label>
+      <input id="inp_name" type="text" placeholder="napr. Juraj" />
+      <button id="btn_greet">Pozdrav</button>
+    </div>
+
+    <p id="out">Tu sa zobrazí výsledok.</p>
+    <p class="hint">Tip: Ak nič nefunguje, otvor <code>F12 → Console</code>.</p>
+  </div>
+
+  <script type="text/python" src="main.py"></script>
+</body>
+</html>
