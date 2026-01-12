@@ -31,7 +31,10 @@ def reset(ev):
     document["inp_name"].value = ""
 
 def show_tip(ev):
-    document["hint"].style.display = "block"
+    if document["hint"].style.display == "block":
+        document["hint"].style.display = "none"
+    else:
+        document["hint"].style.display = "block"
     
 
 # TODO: BIND
