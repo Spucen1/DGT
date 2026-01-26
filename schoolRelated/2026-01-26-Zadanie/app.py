@@ -162,7 +162,7 @@ def on_list_click(ev):
                     i["done"] = True
                 elif i["done"] == True:
                     i["done"] = False  
-    elif ev.target.tagName == "BUTTON":
+    elif ev.target.tagName == "BUTTON" and ev.shiftKey:
         delete_item(item_id)
                                                      
     render()
