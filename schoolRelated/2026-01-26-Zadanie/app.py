@@ -1,4 +1,6 @@
 from browser import document, html, window
+from browser.local_storage import storage
+import json
 
 # VERZIA: A
 # Hotovo: Hotovo prepína klávesou K (keď je položka vybraná).
@@ -31,8 +33,6 @@ def render():
         # --- TODO: vyznačenie selected + done (class) ---
         # tip: li.class_name = "..."
         # ----------------------------------------------
-
-        
 
         # Text
         txt = html.SPAN(it["text"])
@@ -74,10 +74,14 @@ def render_audit():
 
 def save():
     """TODO (Hodina 2): ulož items do localStorage ako JSON."""
+    storage[STORAGE_KEY] = json.dumps(items)
     pass
 
 def load():
+    global items, select_id
     """TODO (Hodina 2): načítaj items z localStorage a nastav selected_id = None."""
+    items = json.loads(storage[STORAGE_KEY])
+    select_id = None
     pass
 
 def add_item(text: str):
@@ -155,17 +159,18 @@ def on_list_click(ev):
     # 1) hotovo: podľa role ("done") alebo klik na text alebo dvojklik atď.
     # 2) odstránenie: podľa role ("del") + pravidlo (Shift/Alt/Ctrl/dvojklik/confirm/selected)
     # -----------------------------------
-    if ev.target.textContent == "Hotovo":
+    if role == "done":
         for i in items:
             if i["id"] == item_id:
                 if i["done"] == False:
                     i["done"] = True
                 elif i["done"] == True:
                     i["done"] = False  
-    elif ev.target.tagName == "BUTTON" and ev.shiftKey:
+    elif role == "del" and ev.shiftKey:
         delete_item(item_id)
                                                      
     render()
+    save()
 
 def on_keydown(ev):
     """TODO: podľa verzie – hotovo cez klávesu (K/H/Space...) pre selected_id."""
