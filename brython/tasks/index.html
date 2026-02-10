@@ -1,29 +1,27 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/brython@3/brython.min.js">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/brython@3/brython_stdlib.js">
-    </script>
-    <script type="text/python" src="script.py"></script>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body onload="brython()">
-    <h2>Task List</h2>
-    <div class="tasks" id="tasks"></div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/brython@3/brython.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/brython@3/brython_stdlib.js"></script>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body onload="brython()">
+        <h2>Task List</h2>
+        <div class="tasks" id="tasks"></div>
 
-    <label for="title" id="title_label"></label>
-    <input type="text" id="title" placeholder="title">
-    <select name="priority" id="priority">
-        <option value="low">low</option>
-        <option value="medium">medium</option>
-        <option value="high">high</option>
-    </select>
-    <button class="add-task" id="add-task">Add task</button>
-    <button class="bck_btn" id="bck_btn">Back</button>
-    
-</body>
+        <label for="title" id="title_label"></label>
+        <input type="text" id="title" placeholder="title" />
+        <select name="priority" id="priority">
+            <option value="low">low</option>
+            <option value="medium">medium</option>
+            <option value="high">high</option>
+        </select>
+        <button class="add-task" id="add-task">Add task</button>
+        <button class="bck_btn" id="bck_btn">Back</button>
+        <script type="text/python" src="app.py"></script>
+        <script src="sw.js"></script>
+    </body>
 </html>
