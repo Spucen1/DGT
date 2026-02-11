@@ -14,7 +14,6 @@ const PRECACHE_ASSETS = [
     "./style.css",
     "./app.py", // ak máte Brython appku (inak vymaž)
     "./sw.js",
-    "./offline.html",
     OFFLINE_URL,
 
     //"./manifest.json",
