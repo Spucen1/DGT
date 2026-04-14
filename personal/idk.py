@@ -1,7 +1,6 @@
-A = int(input("Enter a number: "))
+num1 = int(input("Napis cislo: "))
+num2 = int(input("Napis cislo: "))
 
-def B(C=1, D=0):
-    print(C)
-    print(C + D)
+sum = num1 + num2
 
-B(A, 2)
+print(sum)
