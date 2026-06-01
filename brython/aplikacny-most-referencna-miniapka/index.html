@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#3d5a80" />
+  <title>Aplikačný most – referenčná PWA miniappka</title>
+
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+  <link rel="stylesheet" href="normalize.css" />
+  <link rel="stylesheet" href="style.css" />
+
+  <script src="brython.min.js"></script>
+  <script src="brython_stdlib.js"></script>
+</head>
+<body onload="brython()">
+  <main>
+    <h1>Aplikačný most – referenčná PWA miniappka</h1>
+    <p class="intro">Jednoduchý zoznam položiek. Na tejto appke sa dá ukázať stav, renderovanie, eventy, ukladanie do prehliadača aj základná PWA vrstva.</p>
+
+    <p class="hint"><strong>Ovládanie:</strong> Enter pridá položku. Kláves K prepne stav vybranej položky. Shift + klik na X ukáže desktopový spôsob odstránenia. Na dotyk vyber položku a použi tlačidlo Odstrániť vybranú.</p>
+
+    <section aria-labelledby="tasks-title">
+      <h2 id="tasks-title">Zoznam položiek</h2>
+
+      <div class="row add-row">
+        <label class="sr-only" for="todo_in">Nová položka</label>
+        <input id="todo_in" type="text" placeholder="Napíš položku..." autocomplete="off" />
+        <button id="add_btn" type="button">Pridať</button>
+        <span class="info" id="counts">0 spolu • 0 hotové</span>
+      </div>
+
+      <div class="row filter-row" aria-label="Filtrovanie položiek">
+        <button id="f_all" type="button">Všetky</button>
+        <button id="f_active" type="button">Aktívne</button>
+        <button id="f_done" type="button">Hotové</button>
+        <span class="info">Filter: <b id="filter_lbl">Všetky</b></span>
+      </div>
+
+      <div class="row selected-actions" aria-label="Akcie s vybranou položkou">
+        <button id="delete_selected_btn" type="button" disabled>Odstrániť vybranú</button>
+        <span class="action-note">Najprv vyber položku dotykom alebo kliknutím.</span>
+      </div>
+
+      <ul id="list" aria-live="polite"></ul>
+    </section>
+
+    <section class="audit" aria-labelledby="audit-title">
+      <h2 id="audit-title">Posledné tri akcie</h2>
+      <div id="audit">—</div>
+    </section>
+  </main>
+
+  <script type="text/python" src="app.py"></script>
+  <script src="navigator.js"></script>
+</body>
+</html>
